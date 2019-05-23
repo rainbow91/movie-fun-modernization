@@ -1,0 +1,73 @@
+apr-2019-cna.Cohort ID: 349802942
+Cohort ID: 349802942
+PCF Foundation API: api.sys.evans.pal.pivotal.io
+PCF Org: dianapardy91.gmail.com
+PCF Username: dianapardy91@gmail.com
+PCF Password: fxskngmb
+https://courses.education.pivotal.io/c/349802942/
+
+cf push pal-tracker -p build/libs/pal-tracker.jar --random-route
+cf set-env appname JBP_CONFIG_OPEN_JDK_JRE '{ jre: { version: 11.+ } }'
+
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperSimpleApp -PserverUrl=https://${APP_URL}
+
+local:8080
+cloud- paltracker-sweet-crocodile.apps.evans.pal.pivotal.io
+travis:
+https://travis-ci.org/rainbow91
+https://travis-ci.org/account/repositories
+
+CF_API_URL, CF_ORG, CF_SPACE, CF_USERNAME, CF_PASSWORD, and GITHUB_USERNAME
+
+peopletruthbetold@gmail.com
+http://pal-tracker-eli.apps.evans.pal.pivotal.io/time-entries
+
+admin
+https://apps.sys.evans.pal.pivotal.io
+https://login.sys.evans.pal.pivotal.io/login
+
+curl -i -XPOST -H"Content-Type: application/json" http://pal-tracker-eli.apps.evans.pal.pivotal.io/time-entries -d"{\"projectId\": 1, \"userId\": 2, \"date\": \"2019-01-01\", \"hours\": 8}"
+
+https://github.com/cloudfoundry/java-buildpack
+https://github.com/cloudfoundry-community/tomee-buildpack/releases/download/v4.16.1/tomee-buildpack-v4.16.1.zip 
+
+https://moviefun-talkative-springhare.apps.evans.pal.pivotal.io
+
+
+
+# Clean database
+
+## Get VCAP_SERVICES environment
+
+cf env {app.name}
+
+cf ssh -N -L 63306:{credentials.host}:{credentials.port} {app.name}
+
+flyway -user={credentials.user} -password={password} -url=jdbc:mysql://localhost:63306/{db.name} -locations=filesystem:databases/{app.directory}/migrations clean migrate
+
+
+cf env tracker-backlog
+
+cf ssh -N -L 63306:q-n3s3y1.q-g52854.bosh:3306 tracker-backlog
+
+flyway -user=6dbcf21af01c4bae8e91e2ac14285fe1 -password=wemm4pfl0msi62tz -url=jdbc:mysql://localhost:63306/service_instance_db -locations=filesystem:databases/backlog-server/migrations clean migrate
+
+cf env tracker-registration
+
+cf ssh -N -L 63306:q-n3s3y1.q-g52855.bosh:3306 tracker-registration
+
+flyway -user=96cd9150747f4125bb7e4e976d975159 -password=aaubtuwkhix29ldr -url=jdbc:mysql://localhost:63306/service_instance_db -locations=filesystem:databases/registration-database/migrations clean migrate
+
+
+cf env tracker-timesheets
+
+cf ssh -N -L 63306:q-n3s3y1.q-g52856.bosh:3306 tracker-timesheets
+
+flyway -user=2763880194d0415c9f5a8b763cce9132 -password=m9q5dmlwlryzcwxb -url=jdbc:mysql://localhost:63306/service_instance_db -locations=filesystem:databases/timesheets-database/migrations clean migrate
+
+cf api https://api.run.privotal.io
+og: sashin-org
+
+export VCAP_SERVICES='{"p-mysql": [{"credentials": {"jdbcUrl": "jdbc:mysql://127.0.0.1:3306/albums?user=root"}, "name": "albums-mysql"}, {"credentials": {"jdbcUrl": "jdbc:mysql://127.0.0.1:3306/movies?user=root"}, "name": "movies-mysql"}]}'
+

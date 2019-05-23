@@ -1,0 +1,147 @@
+https://try.kotlinlang.org/#/Examples/Delegated%20properties/Custom%20delegate/Custom%20delegate.kt
+
+fun main(args: Array<String>) {
+    println("Hello, world!")
+}
+
+fun main(args: Array<String>) {
+    if (args.size == 0) {
+        println("Please provide a name as a command-line argument")
+        return
+    }
+    println("Hello, ${args[0]}!")
+}
+fun main(args: Array<String>) {
+    for (name in args)
+        println("Hello, $name!")
+}
+fun main(args: Array<String>) {
+    val language = if (args.size == 0) "EN" else args[0]
+    println(when (language) {
+        "EN" -> "Hello!"
+        "FR" -> "Salut!"
+        "IT" -> "Ciao!"
+        else -> "Sorry, I can't greet you in $language yet"
+    })
+}
+--------------
+class Greeter(val name: String) {
+    fun greet() {
+        println("Hello, ${name}");
+    }
+}
+
+fun main(args: Array<String>) {
+    Greeter(args[0]).greet()
+}
+----------------
+fun main(args: Array<String>) {
+    for (arg in args)
+        println(arg)
+
+    // or
+    println()
+    for (i in args.indices)
+        println(args[i])
+}
+
+------------
+fun main(args: Array<String>) {
+    println(max(args[0].toInt(), args[1].toInt()))
+}
+
+fun max(a: Int, b: Int) = if (a > b) a else b
+------------------
+// Return null if str does not hold a number
+fun parseInt(str: String): Int? {
+    try {
+        return str.toInt()
+    } catch (e: NumberFormatException) {
+        println("One of the arguments isn't Int")
+    }
+    return null
+}
+---------------
+fun getStringLength(obj: Any): Int? {
+    if (obj is String)
+        return obj.length // no cast to String is needed
+    return null
+}
+---------------------
+fun main(args: Array<String>) {
+    var i = 0
+    while (i < args.size)
+        println(args[i++])
+}
+------------------
+fun main(args: Array<String>) {
+    val x = args[0].toInt()
+    //Check if a number lies within a range:
+    //Iterate over a range:
+    for (a in 1..5)
+        print("${a} ")
+
+    //Check if a number is out of range:
+    println()
+    val array = arrayListOf<String>()
+    array.add("aaa")
+    array.add("bbb")
+    array.add("ccc")
+
+    if (x !in 0..array.size - 1)
+        println("Out: array has only ${array.size} elements. x = ${x}")
+
+    //Check if a collection contains an object:
+    if ("aaa" in array) // collection.contains(obj) is called
+        println("Yes: array contains aaa")
+}
+----------
+fun cases(obj: Any) {
+    when (obj) {
+        1 -> println("One")
+        "Hello" -> println("Greeting")
+        is Long -> println("Long")
+        !is String -> println("Not a string")
+        else -> println("Unknown")
+    }
+}
+--------------
+fun main(args: Array<String>) {
+    val pair = Pair(1, "one")
+
+    val (num, name) = pair
+
+    println("num = $num, name = $name")
+}
+------------------
+fun main(args: Array<String>) {
+    val map = hashMapOf<String, Int>()
+    map.put("one", 1)
+    map.put("two", 2)
+
+    for ((key, value) in map) {
+        println("key = $key, value = $value")
+    }
+}
+------------------
+data class User(val name: String, val id: Int)
+
+fun main(args: Array<String>) {
+    val user = User("Alex", 1)
+    println(user) // toString()
+
+    val secondUser = User("Alex", 1)
+    val thirdUser = User("Max", 2)
+
+    println("user == secondUser: ${user == secondUser}")
+    println("user == thirdUser: ${user == thirdUser}")
+
+    // copy() function
+    println(user.copy())
+    println(user.copy("Max"))
+    println(user.copy(id = 2))
+    println(user.copy("Max", 2))
+}
+-----------------
+
+
